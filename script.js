@@ -12,19 +12,15 @@ digitToWordBtn.addEventListener("click", function () {
     }
 });
 
-const wordToDigitBtn = document.getElementById("wordToDigitBtn");
-const wordInputArea = document.getElementById("wordInputArea");
-const wordToDigitOutput = document.getElementById("wordToDigitOutput");
-
-wordToDigitBtn.addEventListener("click", function () {
-    const text = wordInputArea.value;
+document.getElementById("wordToDigitBtn").addEventListener("click", function () {
+    const text = document.getElementById("wordInputArea").value;
 
     cleanedWords = processWords(text);
     if (!cleanedWords.valid) {
-        wordToDigitOutput.textContent = "Invalid input, must be words separated by spaces, no special characters.";
+        document.getElementById("wordToDigitOutput").textContent = "Invalid input, must be words separated by spaces, no special characters.";
     } else {
         conversionResult = wordsToDigits(cleanedWords.words)
-        wordToDigitOutput.textContent = conversionResult;
+        document.getElementById("wordToDigitOutput").textContent = conversionResult;
     }
 });
 
@@ -59,5 +55,26 @@ function wordsToDigits(cleanedWords){
 }
 
 function digitsToWords(digits){
+    // Fetch the file (assuming it's in the same folder as index.html)
+    fetch('test_words.txt')
+        .then(response => {
+            // Check if the fetch was successful
+            if (!response.ok) {
+                throw new Error('File not found or error fetching');
+            }
+            return response.text(); // Get the content of the file as text
+        })
+        .then(text => {
+            // Split the file content by newline and remove leading/trailing spaces
+            const wordsArray = text.split('\n').map(word => word.trim());
+
+            // Display the array of words in the <pre> element
+            digitToWordOutput.textContent = JSON.stringify(wordsArray, null, 2);
+        })
+        .catch(error => {
+            // Handle any errors (e.g., file not found, network error)
+            console.error('Error:', error);
+            document.getElementById('output').textContent = `Error: ${error.message}`;
+        });
     return digits;
 }
