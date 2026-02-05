@@ -1,3 +1,4 @@
+
 const digitToWordBtn = document.getElementById("digitToWordBtn");
 const digitInputArea = document.getElementById("digitInputArea");
 const digitToWordOutput = document.getElementById("digitToWordOutput");
@@ -15,14 +16,18 @@ digitToWordBtn.addEventListener("click", function () {
 document.getElementById("wordToDigitBtn").addEventListener("click", function () {
     const text = document.getElementById("wordInputArea").value;
 
-    cleanedWords = processWords(text);
+    const cleanedWords = processWords(text);
     if (!cleanedWords.valid) {
         document.getElementById("wordToDigitOutput").textContent = "Invalid input, must be words separated by spaces, no special characters.";
     } else {
-        conversionResult = wordsToDigits(cleanedWords.words)
+        const conversionResult = wordsToDigits(cleanedWords.words)
         document.getElementById("wordToDigitOutput").textContent = conversionResult;
     }
 });
+
+function formatWordOutput(wordOutputArr) {
+    return wordOutputArr.join(".")
+}
 
 /**
  * Processes a string of words by converting to lowercase, validating characters,
@@ -40,7 +45,7 @@ function processWords(wordInput){
     const lower = wordInput.toLowerCase();
 
     const hasInvalidCharacters = /[^a-z ]/.test(lower);
-    wordArray = lower.split(" ").filter(char => char !== "");
+    const wordArray = lower.split(" ").filter(char => char !== "");
 
     if (hasInvalidCharacters || wordArray.length == 0) {
         return {valid: false, words: []};
@@ -51,30 +56,35 @@ function processWords(wordInput){
 }
 
 function wordsToDigits(cleanedWords){
-    return cleanedWords.length
+    // Read in the file to get word array
+    // Determine index of each word in array (or throw error if not present)
+    const wordPositions = cleanedWords.map(item => WORD_ARRAY.indexOf(item));
+    console.log(wordPositions)
+    if (wordPositions.some(i => i < 0)) {
+        throw new Error('Words not present in corpus. Check spelling?')
+    }
+    return toBaseTen(WORD_ARRAY.length, wordPositions)
 }
 
 function digitsToWords(digits){
-    // Fetch the file (assuming it's in the same folder as index.html)
-    fetch('test_words.txt')
-        .then(response => {
-            // Check if the fetch was successful
-            if (!response.ok) {
-                throw new Error('File not found or error fetching');
-            }
-            return response.text(); // Get the content of the file as text
-        })
-        .then(text => {
-            // Split the file content by newline and remove leading/trailing spaces
-            const wordsArray = text.split('\n').map(word => word.trim());
+    const wordPositions = toBaseN(digits, WORD_ARRAY.length);
+    return wordPositions.map(i => WORD_ARRAY[i])
+}
 
-            // Display the array of words in the <pre> element
-            digitToWordOutput.textContent = JSON.stringify(wordsArray, null, 2);
-        })
-        .catch(error => {
-            // Handle any errors (e.g., file not found, network error)
-            console.error('Error:', error);
-            document.getElementById('output').textContent = `Error: ${error.message}`;
-        });
-    return digits;
+function toBaseTen(originBase, originDigits) {
+    exponents = Array.from({ length: originDigits.length}, (_, i) => originBase ** i);
+    return originDigits.reduce((currentTotal, nextDigit, index) => currentTotal + nextDigit * exponents[index])
+}
+
+function toBaseN(originalNumber, targetBase) {
+    const resultDigits = []
+    if (targetBase <= 1) throw new Error("Target base must be >= 2")
+    if (originalNumber == 0) return [0];
+    let remainingNumber = originalNumber;
+    while (remainingNumber > 0) {
+        const nextDigit = remainingNumber % targetBase;
+        resultDigits.push(nextDigit);
+        remainingNumber = Math.floor(remainingNumber / targetBase)
+    }
+    return resultDigits;
 }

@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>Phone Phrase</title>
+    <script>
+        let WORD_ARRAY = [];
+
+        window.addEventListener("DOMContentLoaded", async () => {
+        const res = await fetch("words.json");
+        WORD_ARRAY = await res.json();
+        console.log("Loaded", WORD_ARRAY.length, "words");
+        });
+    </script>
     <script src="script.js" defer></script>
 </head>
 <body>
