@@ -1,3 +1,75 @@
 body {
-    font-family: Arial, sans-serif;
+    background-color: #fff9c4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #555;
+}
+
+#mainContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Card styling (input & output) */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fbc02d;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.card button:hover {
+    background-color: #f9a825;
+}
+
+.card textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#output {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #444;
 }

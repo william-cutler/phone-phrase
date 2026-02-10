@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
@@ -8,32 +9,52 @@
         let WORD_ARRAY = [];
 
         window.addEventListener("DOMContentLoaded", async () => {
-        const res = await fetch("words.json");
-        WORD_ARRAY = await res.json();
-        console.log("Loaded", WORD_ARRAY.length, "words");
+            const res = await fetch("words.json");
+            WORD_ARRAY = await res.json();
+            console.log("Loaded", WORD_ARRAY.length, "words");
         });
     </script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
+    <header>
+        <h1>phone.phrase</h1>
+        <p>Reproducibly convert digits to words and back. Nothing is saved.</p>
+    </header>
 
-    <h1>Digits to Words</h1>
+    <!-- Main content section: input/output cards side by side -->
+    <main id="mainContent">
+        <!-- Input card -->
+        <div class="card" id="inputCard">
+            <label for="inputArea">Input:</label>
+            <textarea id="inputArea" rows="1" cols="40"></textarea>
+            <button id="convertBtn">Convert</button>
+        </div>
 
-    <label for="digitInputArea">Enter digits:</label><br><br>
-    <textarea id="digitInputArea" rows="1" cols="10"></textarea><br><br>
+        <!-- Output card -->
+        <div class="card" id="outputCard">
+            <label for="inputArea">Result:</label>
+            <span id="output">-</span>
+            <button id="copyBtn">Copy</button>
+        </div>
+    </main>
 
-    <button id="digitToWordBtn">Convert to words</button>
 
-    <p>Result: <span id="digitToWordOutput">-</span></p>
+    <!-- <div id="inputContainer">
+        <label for="inputArea">Input:</label>
+        <textarea id="inputArea" rows="1" cols="40"></textarea>
 
-    <h1>Words to Digits</h1>
+        <button id="convertBtn">Convert</button>
+    </div>
 
-    <label for="wordInputArea">Enter words:</label><br><br>
-    <textarea id="wordInputArea" rows="1" cols="30"></textarea><br><br>
+    <div id="resultContainer">
+        <label for="inputArea">Result:</label>
+        <span id="output">-</span>
+        <button id="copyBtn">Copy</button>
+    </div> -->
 
-    <button id="wordToDigitBtn">Convert to digits</button>
-
-    <p>Result: <span id="wordToDigitOutput">0</span></p>
 
 </body>
+
 </html>
