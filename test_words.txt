@@ -6,5 +6,4 @@ test
 of 
 reading 
 text 
-files 
-yourmom 
+files  

@@ -1,12 +1,9 @@
 Functionality:
 * display some history
 * Host online
-* Size limits
-* Error messaging on words not in corpus
+* Size limits/expand result output to match
 
 UI/Layout:
-* Background color
-* Centering
 
 Content:
 * About/How to

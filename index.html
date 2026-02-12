@@ -9,7 +9,7 @@
         let WORD_ARRAY = [];
 
         window.addEventListener("DOMContentLoaded", async () => {
-            const res = await fetch("words.json");
+            const res = await fetch("union_corpus_max_8.json");
             WORD_ARRAY = await res.json();
             console.log("Loaded", WORD_ARRAY.length, "words");
         });

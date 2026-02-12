@@ -73,3 +73,9 @@ header p {
     font-size: 1.4rem;
     color: #444;
 }
+
+#output.error-message {
+    font-weight: normal;
+    font-size: 1.0rem;
+    color: red;
+}

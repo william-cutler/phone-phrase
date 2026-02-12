@@ -29,15 +29,24 @@ copyBtn.addEventListener("click", () => {
 function startConversion() {
     const text = inputArea.value;
     const parseResult = parseInput(text);
+
+    output.classList.remove("error-message")
     switch (parseResult.type) {
         case InputType.INVALID:
+            output.classList.add("error-message")
             output.textContent = "I only work on digits or words separately :/";
             break;
         case InputType.DIGITS:
             output.textContent = formatWordOutput(digitsToWords(Number(parseResult.value)));
             break;
         case InputType.WORDS:
-            output.textContent = wordsToDigits(parseResult.value);
+            const result = wordsToDigits(parseResult.value);
+            if (result.ok) {
+                output.textContent = result.value;
+            } else {
+                output.classList.add("error-message")
+                output.textContent = result.error;
+            }
             break;
     }
 }
@@ -91,13 +100,12 @@ function formatWordOutput(wordOutputArr) {
 }
 
 function wordsToDigits(cleanedWords) {
-    // Determine index of each word in array (or throw error if not present)
     const wordPositions = cleanedWords.map(item => WORD_ARRAY.indexOf(item));
     console.log(wordPositions)
     if (wordPositions.some(i => i < 0)) {
-        throw new Error('Words not present in corpus. Check spelling?')
+        return { ok: false, error: 'One or more words not present in corpus. Check spelling?' }
     }
-    return toBaseTen(WORD_ARRAY.length, wordPositions)
+    return { ok: true, value: toBaseTen(WORD_ARRAY.length, wordPositions) }
 }
 
 function digitsToWords(digits) {
@@ -122,51 +130,3 @@ function toBaseN(originalNumber, targetBase) {
     }
     return resultDigits;
 }
-
-// digitToWordBtn.addEventListener("click", function () {
-//     const text = digitInputArea.value;
-//     const digitsOnly = text.replace(/\D/g, "");
-//     if (digitsOnly.length == 0) {
-//         digitToWordOutput.textContent = "Need at least one digit";
-//     } else {
-//         digitToWordOutput.textContent = digitsToWords(digitsOnly);
-//     }
-// });
-
-// document.getElementById("wordToDigitBtn").addEventListener("click", function () {
-//     const text = document.getElementById("wordInputArea").value;
-
-//     const cleanedWords = processWords(text);
-//     if (!cleanedWords.valid) {
-//         document.getElementById("wordToDigitOutput").textContent = "Invalid input, must be words separated by spaces, no special characters.";
-//     } else {
-//         const conversionResult = wordsToDigits(cleanedWords.words)
-//         document.getElementById("wordToDigitOutput").textContent = conversionResult;
-//     }
-// });
-
-// /**
-//  * Processes a string of words by converting to lowercase, validating characters,
-//  * and splitting into an array of words.
-//  *
-//  * Only lowercase/uppercase letters and spaces are allowed. If the input contains
-//  * any other characters, the function returns `valid: false` and an empty array.
-//  *
-//  * @param {string} wordInput - The input string containing words.
-//  * @returns {{valid: boolean, words: string[]}} An object with:
-//  *   - `valid`: true if the input contains only letters and spaces, false otherwise
-//  *   - `words`: array of words split by spaces if valid, otherwise an empty array
-//  */
-// function processWords(wordInput) {
-//     const lower = wordInput.toLowerCase();
-
-//     const hasInvalidCharacters = /[^a-z ]/.test(lower);
-//     const wordArray = lower.split(" ").filter(char => char !== "");
-
-//     if (hasInvalidCharacters || wordArray.length == 0) {
-//         return { valid: false, words: [] };
-//     } else {
-//         console.log(wordArray)
-//         return { valid: true, words: wordArray };
-//     }
-// }
