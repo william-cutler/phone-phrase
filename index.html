@@ -7,7 +7,7 @@
     <meta name="keywords" content="phone phrase, digits to words, converter">
     <meta name="author" content="William Cutler">
     <meta name="theme-color" content="#fbc02d">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,7 @@
         let WORD_ARRAY = [];
 
         window.addEventListener("DOMContentLoaded", async () => {
-            const res = await fetch("union_corpus_max_8.json");
+            const res = await fetch("final_corpus_v_2_shuffled.json");
             WORD_ARRAY = await res.json();
             console.log("Loaded", WORD_ARRAY.length, "words");
         });
@@ -27,9 +27,9 @@
 <body>
     <header>
         <h1>phone.phrase</h1>
-        <p>Reproducibly convert digits to words and back, ignoring punctuation. Nothing is saved. Inspired by
-            what3words.com</p>
-
+        <p>Reproducibly convert digits to words and back, ignoring punctuation. Nothing is saved. <br> Inspired by
+            what3words.com </p>
+        <button id="howItWorksBtn">How it works</button>
     </header>
 
     <!-- Main content section: input/output cards side by side -->
@@ -51,7 +51,6 @@
 
     <a href="https://buymeacoffee.com/williamcutler" target="_blank" rel="noopener noreferrer">Buy me a coffee ☕</a>
 
-
     <!-- <div id="inputContainer">
         <label for="inputArea">Input:</label>
         <textarea id="inputArea" rows="1" cols="40"></textarea>
@@ -66,6 +65,35 @@
     </div> -->
 
 
+    <!-- How It Works Modal -->
+    <div id="howItWorksModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <h2>How It Works</h2>
+
+            <p>
+                This tool saves you from memorizing long sequences of digits by turning it into a short,
+                easy-to-remember phrase. No information is saved.
+            </p>
+
+            <ol>
+                <li>Enter any sequence of digits.</li>
+                <li>Click "convert".</li>
+                <li>The corresponding phrase appears below.</li>
+                <li>Entering the phrase in the "input" gives you the original digits.</li>
+            </ol>
+
+            <p>
+                <b>Note:</b> Zeros at the beginning are ignored.
+            </p>
+        </div>
+    </div>
 </body>
+<footer>
+    <a href="https://github.com/william-cutler/phone-phrase" target="_blank" rel="noopener noreferrer">
+        View source on GitHub
+    </a>
+</footer>
 
 </html>

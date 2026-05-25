@@ -9,7 +9,6 @@ ablaze
 able
 abnormal
 abode
-abortion
 abortive
 about
 above
@@ -110,7 +109,6 @@ afloat
 aflutter
 afoot
 afraid
-african
 after
 again
 aged
@@ -132,7 +130,6 @@ aground
 ahead
 ahoy
 aide
-aids
 aircraft
 airline
 airport
@@ -151,7 +148,6 @@ aliens
 alike
 alive
 alkaline
-alkalize
 alkaloid
 allay
 allege
@@ -190,7 +186,6 @@ ambition
 ambush
 amends
 amenity
-american
 amiable
 amicably
 amid
@@ -419,8 +414,6 @@ augment
 august
 austere
 author
-autism
-autistic
 auto
 autumn
 avatar
@@ -1156,7 +1149,6 @@ chill
 chimney
 chimp
 china
-chinese
 chip
 chirping
 chirpy
@@ -2169,8 +2161,6 @@ dying
 dynamic
 dynamite
 dynasty
-dyslexia
-dyslexic
 each
 eager
 eagle
@@ -2357,7 +2347,6 @@ enrage
 enrich
 enroll
 ensign
-enslave
 ensnare
 ensure
 entail
@@ -2564,7 +2553,6 @@ farewell
 farm
 farther
 farthest
-fascism
 fashion
 fast
 fastball
@@ -3634,7 +3622,6 @@ irrigate
 irritant
 irritate
 islamic
-islamist
 island
 isolated
 isomeric
@@ -5372,7 +5359,6 @@ rabid
 race
 racial
 racing
-racism
 rack
 racoon
 radar
@@ -6310,7 +6296,6 @@ skimming
 skimpily
 skin
 skincare
-skinhead
 skinless
 skinning
 skip
@@ -6340,7 +6325,7 @@ slashed
 slashing
 slate
 slather
-slave
+slavery
 slaw
 sled
 sleek

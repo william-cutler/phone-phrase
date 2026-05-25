@@ -1,7 +1,7 @@
+const output = document.getElementById("output");
 const inputArea = document.getElementById("inputArea");
 const convertBtn = document.getElementById("convertBtn");
 const copyBtn = document.getElementById("copyBtn");
-const output = document.getElementById("output");
 
 convertBtn.addEventListener("click", startConversion);
 
@@ -130,3 +130,30 @@ function toBaseN(originalNumber, targetBase) {
     }
     return resultDigits;
 }
+
+const helpModal = document.getElementById("howItWorksModal");
+const helpBtn = document.getElementById("howItWorksBtn");
+const closeBtn = document.querySelector(".close");
+
+// Open modal
+helpBtn.addEventListener("click", function (event) {
+    console.log("LINKK CLICKED")
+    event.preventDefault();
+    helpModal.style.display = "block";
+});
+
+// Close modal with X
+closeBtn.addEventListener("click", function () {
+    helpModal.style.display = "none";
+});
+
+// Close modal if user clicks outside content
+window.addEventListener("click", function (event) {
+    if (event.target === helpModal) {
+        helpModal.style.display = "none";
+    }
+});
+
+
+
+

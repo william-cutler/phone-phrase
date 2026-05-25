@@ -8,4 +8,3 @@ Functionality:
 UI/Layout:
 
 Content:
-* Better list of words...
