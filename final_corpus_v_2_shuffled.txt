@@ -1,9 +1,10 @@
+start
 jaunt
 overuse
 pause
 gory
 restrain
-fanciful
+lucky
 sail
 antique
 evil
@@ -15,6 +16,7 @@ flowing
 unhinge
 achiness
 comb
+chai
 overcome
 ring
 existing
@@ -310,6 +312,7 @@ shifting
 unviable
 snagged
 urban
+circle
 fled
 hesitate
 near
@@ -399,6 +402,7 @@ impress
 harm
 wrath
 starlit
+lost
 aflame
 abdomen
 result
@@ -525,7 +529,7 @@ spectrum
 freehand
 reggae
 shame
-unselect
+birthday
 hush
 volatile
 rail
@@ -607,6 +611,7 @@ rather
 crept
 refute
 gleeful
+mitzvah
 trend
 hexagon
 crisp
@@ -1064,7 +1069,7 @@ false
 reddish
 acid
 relocate
-operate
+tutone
 primal
 unsold
 outshine
@@ -1769,6 +1774,7 @@ scrooge
 caramel
 horse
 dropping
+freedom
 afar
 total
 timber
@@ -1961,6 +1967,7 @@ intrude
 cite
 demotion
 safari
+moon
 camping
 slot
 botch
@@ -2400,7 +2407,7 @@ exhibit
 remold
 mask
 stake
-omega
+shannon
 nautical
 evasive
 glitch
@@ -3413,7 +3420,7 @@ small
 care
 stopping
 obedient
-passerby
+tommy
 swung
 immobile
 inhuman
@@ -4398,7 +4405,6 @@ deluge
 coach
 pleasing
 onlooker
-freedom
 desktop
 iodize
 overbook
@@ -7186,7 +7192,6 @@ ethics
 saloon
 chevy
 outsmart
-lost
 bond
 eggnog
 edifice
@@ -7199,7 +7204,7 @@ horn
 attend
 unit
 accuracy
-birthday
+unselect
 machine
 expert
 warfare
@@ -7687,7 +7692,6 @@ tell
 nuclear
 merry
 getup
-circle
 coping
 outlook
 coasting
@@ -8006,7 +8010,6 @@ tail
 thus
 lying
 uranium
-moon
 kimono
 greeter
 footrest
